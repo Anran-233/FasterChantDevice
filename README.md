@@ -1,5 +1,5 @@
 # FasterChantDevice
-《300高速咏唱装置》一个外部实现的简易一键喊话软件
+《300高速咏唱装置》一个外部实现的简易一键喊话软件  [【下载地址】](https://github.com/Anran-233/FasterChantDevice/releases)
 
 ![image](https://user-images.githubusercontent.com/111073265/184226513-2c329eae-fcf2-4e29-b9ba-57967952aaa5.png)
 
