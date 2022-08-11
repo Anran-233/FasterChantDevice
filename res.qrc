@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>exe.ico</file>
+        <file>FasterChantDevice.zip</file>
+    </qresource>
+</RCC>

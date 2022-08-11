@@ -1,0 +1,1729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>661</width>
+    <height>420</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>《300英雄》高速咏唱装置 v0.1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/res/exe.ico</normaloff>:/res/exe.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{font: 12px &quot;微软雅黑&quot;;}
+#MainWindow{background-color: #EEE;}
+#centralwidget &gt; #frame_hand, 
+#centralwidget &gt; #frame_button, 
+#centralwidget &gt; #frame_style
+{border: 1px solid #888;}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_hand">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>441</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border: 1px solid #ADADAD;
+	background-color: #E1E2E2;
+	color: #444;
+}
+QPushButton:hover {
+	border: 1px solid #0078D7;
+	background-color: #E5F1FB;
+	color: #024;
+}
+QPushButton:pressed {
+	border: 1px solid #00559B;
+	background-color: #CCE4F7;
+	color: #024;
+}
+QPushButton:!enabled {
+	border: 1px solid #BFBFBF;
+	background-color: #CCCCCC;
+	color: #888888;
+}</string>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <widget class="QLabel" name="hand_logo">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>205</width>
+       <height>65</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #888;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24px;&quot;&gt;300高速咏唱装置&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;@Anran233 v0.2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="Line" name="hand_line">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>64</y>
+       <width>441</width>
+       <height>1</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #888;</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hand_scheme_import">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>68</y>
+       <width>45</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>导入</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hand_scheme_delete">
+     <property name="geometry">
+      <rect>
+       <x>392</x>
+       <y>94</y>
+       <width>45</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>删除</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hand_scheme_new">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>94</y>
+       <width>45</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>新建</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="hand_scheme_list">
+     <property name="geometry">
+      <rect>
+       <x>52</x>
+       <y>94</y>
+       <width>289</width>
+       <height>23</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hand_scheme_output">
+     <property name="geometry">
+      <rect>
+       <x>392</x>
+       <y>68</y>
+       <width>45</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>导出</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hand_scheme_selected">
+     <property name="geometry">
+      <rect>
+       <x>4</x>
+       <y>94</y>
+       <width>45</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>选中此方案为显示面板方案</string>
+     </property>
+     <property name="text">
+      <string>选中</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_selected_tip">
+     <property name="geometry">
+      <rect>
+       <x>4</x>
+       <y>68</y>
+       <width>86</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>当前选中方案：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_selected_name">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>68</y>
+       <width>250</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>250</width>
+       <height>23</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>250</width>
+       <height>23</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>当前显示面板所选用的方案</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>#23 - 测试方案名称</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_style">
+    <property name="geometry">
+     <rect>
+      <x>499</x>
+      <y>0</y>
+      <width>162</width>
+      <height>420</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame_style{border: 1px solid #888;}
+QPushButton {
+	border: 1px solid #ADADAD;
+	background-color: #E1E2E2;
+	color: #444;
+}
+QPushButton:hover {
+	border: 1px solid #0078D7;
+	background-color: #E5F1FB;
+	color: #024;
+}
+QPushButton:pressed {
+	border: 1px solid #00559B;
+	background-color: #CCE4F7;
+	color: #024;
+}
+QPushButton:!enabled {
+	border: 1px solid #BFBFBF;
+	background-color: #CCCCCC;
+	color: #888888;
+}
+QSpinBox::up-button,QSpinBox::down-button {
+	width:0px;
+}
+QSpinBox {
+	border:1px solid #797979;
+	background-color: #FFFFFF;
+}
+QSpinBox:hover {
+	border: 1px solid #171717;
+	background-color: #FFFFFF;
+}
+QSpinBox:!enabled {
+	border: 1px solid #CCCCCC;
+	background-color: #F0F0F0;
+}</string>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <widget class="QGroupBox" name="groupBox_currency">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>0</y>
+       <width>160</width>
+       <height>130</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>通用样式</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <property name="leftMargin">
+       <number>2</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>2</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <item row="3" column="0">
+       <widget class="QLabel" name="currency_stroke_level_label">
+        <property name="minimumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>描边质量：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="currency_background_color_label">
+        <property name="minimumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>背景颜色：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="currency_stroke_level">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>1x 质量</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2x 质量</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>4x 质量</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="currency_background_color">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(0, 0, 0, 155);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="currency_width">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="suffix">
+         <string>px</string>
+        </property>
+        <property name="prefix">
+         <string/>
+        </property>
+        <property name="minimum">
+         <number>300</number>
+        </property>
+        <property name="maximum">
+         <number>1300</number>
+        </property>
+        <property name="value">
+         <number>400</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="currency_font_family_label">
+        <property name="minimumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>字体族类：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QFontComboBox" name="currency_font_family">
+        <property name="currentFont">
+         <font>
+          <family>微软雅黑</family>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="currency_width_label">
+        <property name="minimumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>64</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>面板宽度：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <spacer name="currency_verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_content">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>260</y>
+       <width>160</width>
+       <height>130</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>内容样式</string>
+     </property>
+     <widget class="QFrame" name="frame_content">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>20</y>
+        <width>160</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>2</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="content_font">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="content_font_label">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>文字：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="content_font_color">
+           <property name="minimumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 0);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="content_font_size">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="suffix">
+            <string>px</string>
+           </property>
+           <property name="minimum">
+            <number>12</number>
+           </property>
+           <property name="maximum">
+            <number>24</number>
+           </property>
+           <property name="value">
+            <number>16</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="content_font_horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="content_font_bold">
+           <property name="text">
+            <string>粗体</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="content_stroke">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="content_stroke_label">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>描边：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="content_stroke_color">
+           <property name="minimumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgba(0, 0, 0, 155);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="content_stroke_size">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="suffix">
+            <string>px</string>
+           </property>
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>4</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="content_stroke_horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="content_verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="content_label_background">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>76</y>
+        <width>156</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 169, 255, 147), stop:0.497326 rgba(0, 0, 0, 147), stop:1 rgba(0, 169, 255, 147));</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="content_label_preview">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>76</y>
+        <width>156</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16px;
+color: rgb(255, 255, 0);
+background-color: rgba(0, 0, 0, 155);</string>
+      </property>
+      <property name="text">
+       <string>1. 内容预览效果</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_title">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>130</y>
+       <width>160</width>
+       <height>130</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>标题样式</string>
+     </property>
+     <widget class="QFrame" name="frame_title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>20</y>
+        <width>160</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>2</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="title_font">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="title_font_label">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>文字：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="title_font_color">
+           <property name="minimumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="title_font_size">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox
+{
+	border:1px solid #999;
+}
+ 
+QSpinBox::up-button,QSpinBox::down-button
+{
+	width:0px;
+}</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="suffix">
+            <string>px</string>
+           </property>
+           <property name="minimum">
+            <number>12</number>
+           </property>
+           <property name="maximum">
+            <number>24</number>
+           </property>
+           <property name="value">
+            <number>24</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="title_font_horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="title_font_bold">
+           <property name="text">
+            <string>粗体</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="title_stroke">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="title_stroke_label">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>描边：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="title_stroke_color">
+           <property name="minimumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>21</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgba(0, 0, 0, 155);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="title_stroke_size">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="suffix">
+            <string>px</string>
+           </property>
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>4</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="title_stroke_horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="title_verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="title_label_background">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>76</y>
+        <width>156</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 169, 255, 147), stop:0.497326 rgba(0, 0, 0, 147), stop:1 rgba(0, 169, 255, 147));</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="title_label_preview">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>76</y>
+        <width>156</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>156</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24px &quot;微软雅黑&quot;;
+font-weight:bold;
+color: rgba(255, 255, 255, 255);
+background-color: rgba(0, 0, 0, 155);</string>
+      </property>
+      <property name="text">
+       <string>#00 - 标题</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="style_save">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>392</y>
+       <width>76</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>应用样式</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="style_cancel">
+     <property name="geometry">
+      <rect>
+       <x>82</x>
+       <y>392</y>
+       <width>77</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>还原样式</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>120</y>
+      <width>500</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page_home">
+     <widget class="QLabel" name="label_home">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>500</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #888;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24px;&quot;&gt;#_# 一个预设方案都没有！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_scheme"/>
+   </widget>
+   <widget class="QFrame" name="frame_button">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>0</y>
+      <width>60</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame_button{
+	background-color: #E1E2E2;
+}
+QPushButton {
+	border: 1px solid rgba(0,0,0,0);
+	background-color: rgba(0,0,0,0);
+	color: #444;
+}
+QPushButton:hover {
+	border: 1px solid #0078D7;
+	background-color: #E5F1FB;
+	color: #024;
+}
+QPushButton:pressed {
+	border: 1px solid #00559B;
+	background-color: #CCE4F7;
+	color: #024;
+}
+QPushButton:!enabled {
+	border: 1px solid #BFBFBF;
+	background-color: #CCCCCC;
+	color: #888888;
+}</string>
+    </property>
+    <widget class="QPushButton" name="button_close">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton:hover {
+	border: 1px solid #F00;
+	background-color: #F66;
+	color: #FFF;
+}
+QPushButton:pressed {
+	border: 1px solid #F44;
+	background-color: #F88;
+	color: #FFF;
+}</string>
+     </property>
+     <property name="text">
+      <string>退出程序</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_min">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>24</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>最小化</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_tray">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>48</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>托盘化</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_style">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>96</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>显示面板的文字和背景样式设置</string>
+     </property>
+     <property name="text">
+      <string>样式设置</string>
+     </property>
+    </widget>
+    <widget class="Line" name="button_line_1">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>24</y>
+       <width>60</width>
+       <height>1</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #888;</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="button_line_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>48</y>
+       <width>60</width>
+       <height>1</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #888;</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="button_line_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>72</y>
+       <width>60</width>
+       <height>1</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #888;</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_senior">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>72</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>一些不常用的高级参数</string>
+     </property>
+     <property name="text">
+      <string>高级设置</string>
+     </property>
+    </widget>
+    <widget class="Line" name="button_line_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>96</y>
+       <width>60</width>
+       <height>1</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #888;</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <zorder>button_line_4</zorder>
+    <zorder>button_line_3</zorder>
+    <zorder>button_line_2</zorder>
+    <zorder>button_line_1</zorder>
+    <zorder>button_close</zorder>
+    <zorder>button_min</zorder>
+    <zorder>button_tray</zorder>
+    <zorder>button_style</zorder>
+    <zorder>button_senior</zorder>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget_hand">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>1</y>
+      <width>235</width>
+      <height>63</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QComboBox" name="hand_left">
+      <property name="geometry">
+       <rect>
+        <x>154</x>
+        <y>35</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>面板显示的位置</string>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>右侧</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>左侧</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="hand_key_label">
+      <property name="geometry">
+       <rect>
+        <x>94</x>
+        <y>6</y>
+        <width>60</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>启动按键：</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="hand_public">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>35</y>
+        <width>71</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>将消息发送到公共频道</string>
+      </property>
+      <property name="text">
+       <string>全体发言</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="hand_only300">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>6</y>
+        <width>71</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>仅在300英雄中启用</string>
+      </property>
+      <property name="text">
+       <string>仅限三百</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="hand_key">
+      <property name="geometry">
+       <rect>
+        <x>154</x>
+        <y>6</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>呼出面板时所使用的热键</string>
+      </property>
+      <property name="currentIndex">
+       <number>6</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>; 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>+ 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>, 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>- 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>. 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>/ 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>~ 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>[ 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>\ 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>] 键</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>' 键</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="hand_left_label">
+      <property name="geometry">
+       <rect>
+        <x>94</x>
+        <y>35</y>
+        <width>60</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>显示位置：</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_senior">
+     <widget class="QLabel" name="senior_tip">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>215</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(97, 97, 97);</string>
+      </property>
+      <property name="text">
+       <string>提示：鼠标放在按钮上以提供帮助文本</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="senior_shield">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>18</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>启用后，启动热键将会完全屏蔽原有的输出功能
+例如“=”键原本的按下输出“=”字符功能会被屏蔽
+按键将会仅用作呼出显示面板使用</string>
+      </property>
+      <property name="text">
+       <string>启动热键屏蔽输出</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="senior_mode">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>18</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>【游戏模式】回车键(打开聊天框)-&gt;Ctrl+V(粘贴)-&gt;回车键(发送)
+【聊天模式】Ctrl+V(粘贴)-&gt;回车键(发送)
+(推荐聊天模式下启用【无输出启动热键】)</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>游戏模式</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>聊天模式</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QCheckBox" name="senior_back">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>在二级面板下快捷发言，发送后会自动切换到方案首页</string>
+      </property>
+      <property name="text">
+       <string>发送自动切回首页</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="senior_continuity">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>41</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>##测试功能，不稳定，尽量少用##
+开启连发模式后，原本的二级面板开关将会失效
+首页选中索引，对应的二级面板里的内容，会按顺序和间隔时间连续发送
+在面板首页按【0】键，可以终止正在连发的内容
+在面板首页按住【空格键】不放，同时按数字键，可以快速设置连续咏唱
+设置选项：【0】键为关闭，【1】至【9】键为设置间隔1至9秒</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>关闭连发</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 1s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 2s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 3s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 4s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 5s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 6s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 7s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 8s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 9s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 10s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>间隔: 11s</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
