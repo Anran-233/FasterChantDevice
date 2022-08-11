@@ -88,3 +88,17 @@
 ![image](https://user-images.githubusercontent.com/111073265/184251392-5f4bbf7a-471c-4085-b826-6bdfd3cda2e5.png)
 ![image](https://user-images.githubusercontent.com/111073265/184250915-3c870774-cb49-4828-bb5c-e55110f0e3c4.png)
 
+# 代码开发环境配置
+
+### 开源代码获取方式：
+- [git项目页面](https://github.com/Anran-233/FasterChantDevice.git)直接打包获取
+- 软件左上角logo部分鼠标右键单击即可获取开源代码
+
+### 开发环境
+- Windows系统(因为用到了大量Windows API)
+- QT 5.14.2
+- MSVC 2017 32bit static
+- C++ 11
+
+# 许可证声明
+#### 本项目完全开源，不设任何限制
